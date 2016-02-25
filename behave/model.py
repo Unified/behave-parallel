@@ -754,6 +754,8 @@ class Scenario(TagAndStatusStatement, Replayable):
         runner.context.scenario = self
         runner.context.tags = set(self.effective_tags)
 
+        runner.context.feature = self.feature
+
         if not runner.config.dry_run and run_scenario:
             for tag in self.tags:
                 runner.run_hook('before_tag', runner.context, tag)
